@@ -1,0 +1,139 @@
+<div class="container">
+
+  <nav class="nav-extended">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Logo</a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>
+          <a
+            [routerLink]="['/countries']"
+            [queryParams]="{country: '', city: '', sight: ''}"
+          >
+            Countries
+          </a>
+        </li>
+        <li>
+          <a
+            [routerLink]="['/cities']"
+            [queryParams]="{country: '', city: '', sight: ''}"
+            >
+            Cities
+          </a>
+        </li>
+        <li>
+          <a
+            [routerLink]="['/sights']"
+            [queryParams]="{country: '', city: '', sight: ''}"
+          >
+            Sights
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div appCountryMenu class="nav-content">
+      <ul class="tabs tabs-transparent">
+        <li class="tab">
+          <a
+            [routerLink]="['/countries', countryQuery]"
+            [queryParams]="{country: countryQuery}"
+          >
+            {{countryQuery}}
+          </a>
+        </li>
+        <li class="tab">
+          <a
+            [routerLink]="['/searchcities']"
+            [queryParams]="{country: countryQuery}"
+          >
+            Cities
+          </a>
+        </li>
+        <li class="tab">
+          <a
+            [routerLink]="['/searchsights']"
+            [queryParams]="{country: countryQuery}"
+          >
+            Sights
+          </a>
+        </li>
+       </ul>
+    </div>
+
+    <div appCityMenu class="nav-content">
+      <ul class="tabs tabs-transparent">
+        <li class="tab">
+          <a
+            [routerLink]="['/searchcountries']"
+            [queryParams]="{city: cityQuery}"
+          >
+            Country
+          </a>
+        </li>
+        <li class="tab">
+          <a
+            [routerLink]="['/cities', cityQuery]"
+            [queryParams]="{city: cityQuery}"
+          >
+            {{cityQuery}}
+          </a>
+        </li>
+        <li class="tab">
+          <a
+            [routerLink]="['/searchsights']"
+            [queryParams]="{city: cityQuery}"
+          >
+            Sights
+          </a>
+        </li>
+        <li class="tab">
+          <a
+            [routerLink]="['/weather', cityQuery]"
+            [queryParams]="{city: cityQuery}"
+          >
+            Weather in {{cityQuery}}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div appSightMenu class="nav-content subMenu">
+      <ul class="tabs tabs-transparent">
+        <li class="tab">
+          <a
+            [routerLink]="['/searchcountries']"
+            [queryParams]="{sight: sightQuery}"
+          >
+            Country
+          </a>
+        </li>
+        <li class="tab">
+          <a
+            [routerLink]="['/searchcities']"
+            [queryParams]="{sight: sightQuery}"
+          >
+            City
+          </a>
+        </li>
+      <li class="tab">
+        <a
+          [routerLink]="['/sights', sightQuery]"
+          [queryParams]="{sight: sightQuery}"
+        >
+          {{sightQuery}}
+        </a>
+      </li>
+        <li class="tab">
+        <a
+          [routerLink]="['/gm', sightQuery]"
+          [queryParams]="{sight: sightQuery}"
+        >
+          At Google Maps
+        </a>
+      </li>
+      </ul>
+    </div>
+
+  </nav>
+</div>

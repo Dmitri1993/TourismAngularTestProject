@@ -1,0 +1,10 @@
+.container {
+  padding-top: 30px;
+}
+.isNotVisible {
+  display: none;
+}
+.tabs .tab {
+
+  text-transform: none;
+}

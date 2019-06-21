@@ -1,0 +1,15 @@
+<div class="col s4" style="height: 10%">
+  <a
+    [routerLink]="['/sights',sight.title]"
+    [queryParams]="{sight: sight.title}"
+  >
+    <div class="card" appHover style="height: 90%">
+      <div class="card-image">
+        <img src={{sight.icon}} height=140em width="120px">
+      </div>
+      <div class="card-content">
+        <p style="font-size: 0.8em" >{{sight.title}}</p>
+      </div>
+    </div>
+  </a>
+</div>

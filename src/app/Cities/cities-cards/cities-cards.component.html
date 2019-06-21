@@ -1,0 +1,15 @@
+<div class="container">
+
+  <div class="row">
+    <div class="input-field col s12">
+      <input id="searchField" type="text" class="validate" placeholder="Enter the City's title" [(ngModel)]="searchTitle" >
+    </div>
+  </div>
+  <div class="row">
+    <app-city-card
+      *ngFor="let city of cities | searchByTitle:searchTitle | searchByCountry:searchByCountry | searchBySight:searchCityBySight"
+      [city]="city"
+    ></app-city-card>
+  </div>
+
+</div>
