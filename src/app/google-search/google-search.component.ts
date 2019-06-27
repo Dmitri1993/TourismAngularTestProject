@@ -18,8 +18,7 @@ export class GoogleSearchComponent implements OnInit {
     private commonService: CommonService
   ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   makeSearchRequest() {
     if (this.queryString) {
