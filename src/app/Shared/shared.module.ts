@@ -15,6 +15,7 @@ import {SearchByCityPipe} from '../nav-bar/NavigationPipes/search-by-city.pipe';
 import {SearchByCountryPipe} from '../nav-bar/NavigationPipes/search-by-country.pipe';
 import {CountryMenuDirective} from '../nav-bar/MenuDirectives/country-menu.directive';
 import {SafePipe} from './Pipes/safe.pipe';
+import {CommonService} from './Services/common.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {SafePipe} from './Pipes/safe.pipe';
     NavigationService,
     SightsService,
     CitiesService,
-    CountriesService
+    CountriesService,
+    CommonService
   ]
 })
 export class SharedModule { }

@@ -9,15 +9,21 @@ import {SightsModule} from './Sights/sights.module';
 import {SharedModule} from './Shared/shared.module';
 import {NavBarComponent} from './nav-bar/nav-bar.component';
 import {AppRoutingModule} from './app-routing.module';
+import {NewsComponent} from './News/news.component';
+import {HttpClientModule} from '@angular/common/http';
+import { GoogleSearchComponent } from './google-search/google-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavBarComponent
+    NavBarComponent,
+    NewsComponent,
+    GoogleSearchComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     CountriesModule,
     CitiesModule,
     SightsModule,

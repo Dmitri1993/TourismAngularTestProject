@@ -2,7 +2,7 @@
 
   <nav class="nav-extended">
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Logo</a>
+      <a href="#" class="brand-logo" style="margin-left: 10px;">Tourism Test App</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li>
@@ -27,6 +27,13 @@
             [queryParams]="{country: '', city: '', sight: ''}"
           >
             Sights
+          </a>
+        </li>
+        <li>
+          <a
+            [routerLink]="['/search']"
+          >
+            Search
           </a>
         </li>
       </ul>
@@ -58,6 +65,14 @@
             Sights
           </a>
         </li>
+        <li class="tab">
+          <a
+            [routerLink]="['/news', countryQuery]"
+            [queryParams]="{query: countryQuery}"
+          >
+            News
+          </a>
+        </li>
        </ul>
     </div>
 
@@ -85,6 +100,14 @@
             [queryParams]="{city: cityQuery}"
           >
             Sights
+          </a>
+        </li>
+        <li class="tab">
+          <a
+            [routerLink]="['/news', cityQuery]"
+            [queryParams]="{query: cityQuery}"
+          >
+            News
           </a>
         </li>
         <li class="tab">
@@ -124,7 +147,15 @@
           {{sightQuery}}
         </a>
       </li>
-        <li class="tab">
+      <li class="tab">
+        <a
+          [routerLink]="['/news', sightQuery]"
+          [queryParams]="{query: sightQuery}"
+        >
+          News
+        </a>
+      </li>
+      <li class="tab">
         <a
           [routerLink]="['/gm', sightQuery]"
           [queryParams]="{sight: sightQuery}"

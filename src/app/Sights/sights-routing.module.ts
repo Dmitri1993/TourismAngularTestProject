@@ -8,7 +8,7 @@ const routes: Routes = [
   {path: 'sights', component: SightsCardsComponent},
   {path: 'sights/:title', component: SightComponent},
   {path: 'searchsights', component: SightsCardsComponent},
-  {path: ':title', loadChildren: './google-map/google-map.module#GoogleMapModule'}
+  {path: 'gm', loadChildren: './google-map/google-map.module#GoogleMapModule'}
 ];
 
 @NgModule({
