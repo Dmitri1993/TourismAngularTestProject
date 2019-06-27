@@ -1,0 +1,36 @@
+.card-padding {
+  padding-right: 0;
+  padding-left: 0;
+}
+.card-size {
+  height: 27vh;
+}
+.card-style {
+  height: 100%  !important;
+  width: 100%  !important;
+}
+.card-image-div {
+  width: 40%;
+}
+.image-size {
+  width: 100%;
+  height: 65%;
+  min-width: 12vw;
+}
+.whole-card :hover {
+  transform: scale(1.02);
+  transition: 0.5s all;
+  z-index: 1000;
+}
+.article-description-text {
+  height: 72%;
+  overflow: hidden;
+  padding: 3% 1% 2% 4%;
+}
+.article-title {
+  max-height: 28%;
+  font-size: 2vh;
+  font-stretch: condensed;
+  overflow: hidden;
+  padding: 2%;
+}

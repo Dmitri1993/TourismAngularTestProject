@@ -1,0 +1,31 @@
+<div class="container">
+
+  <div style="height: 2rem;"></div>
+  <div class="row">
+    <div class="input-field col s12" style="display: flex; padding: 0;">
+      <input id="queryField" type="text" class="validate inline" placeholder="Search..." [(ngModel)]="queryString">
+      <a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons" (click)="makeSearchRequest()">search</i></a>
+    </div>
+  </div>
+
+  <div style="height: 2rem;"></div>
+  <div *ngFor="let article of articlesArray">
+    <div class="row whole-card" *ngIf="article.title != null">
+      <div class="col s12 m12 card-padding">
+        <div class="card horizontal card-size">
+          <div class="card-image card-image-div">
+            <img class="card-padding card-style" src="{{article.imageURL}}">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content article-description-text">
+              <p>{{article.snippet}}</p>
+            </div>
+            <div class="card-action article-title">
+              <a href="{{article.link}}" target="_blank">{{article.title}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

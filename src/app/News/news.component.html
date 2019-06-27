@@ -1,0 +1,22 @@
+<div class="container">
+  <div style="height: 2rem;"></div>
+  <div *ngFor="let newsArticle of newsArray">
+    <div class="row whole-card" *ngIf="newsArticle.urlToImage != null">
+      <div class="col s12 m12 card-padding">
+        <div class="card horizontal card-size">
+          <div class="card-image card-image-div">
+            <img class="card-padding card-style" src="{{newsArticle.urlToImage}}">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content article-description-text">
+              <p>{{newsArticle.description}}</p>
+            </div>
+            <div class="card-action article-title">
+              <a href="{{newsArticle.url}}" target="_blank">{{newsArticle.title}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
