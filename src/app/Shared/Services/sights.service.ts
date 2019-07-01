@@ -154,7 +154,7 @@ export class SightsService {
 				'http://s3.travelask.ru/system/images/files/000/064/017/original/%D0%9B%D1%83%D0%B2%D1%80_%D0%B0%D0%BD_%D0%B6%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D0%BB%D1%8C.jpg?1486402852',
 				'http://posmotrim.by/pics/3955018db.jpg',
 				'http://www.muzzeum.net/site/assets/2014/02/luvr.jpg',
-				'http://phototravelguide.ru/wp-content/uploads/2011/02/louvr-01.jpg',
+				'http://phototravelguide.ru/wp-content/uploads/2011/02/louvr-01.jpg'
         ],
         description: '<img src="http://mylouvre.su/wp-content/uploads/2015/05/01.jpg" width=100% height=66%>' +
         '<p>Один из крупнейших и самый популярный художественный музей мира (9 260 000 посетителей в 2014 году, третий в мире по ' +
@@ -366,7 +366,8 @@ export class SightsService {
 			id: 3,
 			title: 'Notre-Dame de la Garde',
 			country: 'France',
-			city: 'Marseille',coordinates: {
+			city: 'Marseille',
+      coordinates: {
 			  'latitude': 43.28444,
         'longitude': 5.37164
       },
@@ -727,7 +728,8 @@ export class SightsService {
 			title: 'Winter Palace',
 			country: 'Russia',
 			city: 'St. Petersburg',
-      coordinates: {'latitude': 59.93977,
+      coordinates: {
+			  'latitude': 59.93977,
         'longitude': 30.31150
       },
 			icon:'https://pp.userapi.com/c836525/v836525520/2cfa4/SMhQf6MQvew.jpg',

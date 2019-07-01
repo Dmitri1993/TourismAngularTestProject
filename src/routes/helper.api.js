@@ -7,6 +7,27 @@
 
   const config = require('../config/config');
 
+  const Countries = require('../db/controllers/countries');
+
+  router.get('/getalldata', function(req, res) {
+    try {
+      return Promise.all([
+        Countries.findAll()
+      ])
+        .then(data => {
+          console.log('data', data);
+          res.send(data)
+        })
+        .catch(err => {
+          console.log('err', err);
+          Promise.reject(err);
+        })
+    } catch (e) {
+      console.log('error', e);
+      Promise.reject(e);
+    }
+  });
+
   router.get('/getnews', function (req, res) {
     try {
       let query = req.query.query;
@@ -150,7 +171,6 @@
         message: error.response.data.error.errors[0].message
       });
     }
-
   }
 
   module.exports = router;
