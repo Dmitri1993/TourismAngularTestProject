@@ -8,11 +8,15 @@
   const config = require('../config/config');
 
   const Countries = require('../db/controllers/countries');
+  const Cities = require('../db/controllers/cities');
+  const Sights = require('../db/controllers/sights');
 
   router.get('/getalldata', function(req, res) {
     try {
       return Promise.all([
-        Countries.findAll()
+        Countries.findAll(),
+        Cities.findAll(),
+        Sights.findAll()
       ])
         .then(data => {
           console.log('data', data);

@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, DataTypes) => {
-  const Country = sequelize.define('Countries', {
+  const Country = sequelize.define('Country', {
     id: {
       type: DataTypes.STRING,
       defaultValue: DataTypes.UUIDV4,
@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: true
   });
   Country.associate = function(models) {
-    Country.hasMany(models.Cities, {foreignKey: 'countryId'})
+    Country.hasMany(models.City, {foreignKey: 'countryId'})
     // associations can be defined here
   };
   return Country;

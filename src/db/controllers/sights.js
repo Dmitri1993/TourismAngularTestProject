@@ -1,10 +1,10 @@
 (function(){
   'use strict';
 
-  const Country = require('../models/index').Country;
+  const Sight = require('../models/index').Sight;
 
   function findAll() {
-    return Country.findAll();
+    return Sight.findAll();
   }
 
   module.exports.findAll = findAll;

@@ -1,10 +1,10 @@
 (function(){
   'use strict';
 
-  const Country = require('../models/index').Country;
+  const City = require('../models/index').City;
 
   function findAll() {
-    return Country.findAll();
+    return City.findAll();
   }
 
   module.exports.findAll = findAll;

@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: true
   });
   City.associate = function(models) {
-    City.hasMany(models.Sights, {foreignKey: 'sightId'}),
-    City.belongsTo(models.Countries, {as: 'countryId__al', foreignKey: 'countryId'})
+    City.hasMany(models.Sight, {foreignKey: 'cityId'}),
+    City.belongsTo(models.Country, {as: 'countryId__al', foreignKey: 'countryId'})
     // associations can be defined here
   };
   return City;
