@@ -1,5 +1,4 @@
 'use strict';
-const Sequelize = require('Sequelize');
 module.exports = (sequelize, DataTypes) => {
   const Sight = sequelize.define('Sight', {
     id: {
@@ -11,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING,
     longitude: DataTypes.STRING,
     latitude: DataTypes.STRING,
-    images: Sequelize.ARRAY(Sequelize.TEXT),
+    images: sequelize.ARRAY(Sequelize.TEXT),
     icon: DataTypes.STRING
   }, {
     tableName: 'Sights',
