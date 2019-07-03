@@ -1,12 +1,29 @@
-import {Injectable} from '@angular/core';
+import {Injectable, isDevMode, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Subject} from 'rxjs';
 
 
 @Injectable()
 
-export class CommonService {
+export class CommonService implements OnInit {
 
-  baseUrl: string = window.location.origin;
+  baseServerUrl: string = isDevMode() ? 'http://localhost:8080' : window.location.origin;
 
-  constructor() {}
+  allData: any;
+  isDataLoaded = new Subject();
+
+  constructor(
+    private httpClient: HttpClient
+  ) {
+    this.httpClient.get(this.baseServerUrl + '/api/getalldata')
+      .subscribe(data => {
+        this.allData = data;
+        this.isDataLoaded.next(true);
+      })
+  }
+
+  ngOnInit(): void {
+
+  }
 
 }

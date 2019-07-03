@@ -1,4 +1,4 @@
-import {NgModule, OnInit} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {GoogleMapComponent} from './google-map.component';
 import {SharedModule} from '../../Shared/shared.module';
 import { AgmCoreModule } from '@agm/core';

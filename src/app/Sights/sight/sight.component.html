@@ -1,6 +1,8 @@
 <div class="container">
 
-  <div class="row" [innerHTML] = "sightToShow.description">
+  <div class="row" [innerHTML] = "sightToShow.description"
+    *ngIf="sightToShow && sightToShow.description"
+  >
   </div>
 
 </div>

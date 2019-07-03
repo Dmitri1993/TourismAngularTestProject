@@ -2,16 +2,15 @@ import {ActivatedRoute} from '@angular/router';
 import {Injectable} from '@angular/core';
 
 import {BehaviorSubject} from 'rxjs';
-
-import {CitiesService} from '../Shared/Services/cities.service';
-import {SightsService} from '../Shared/Services/sights.service';
-
+import {CommonService} from '../Shared/Services/common.service';
 
 @Injectable()
 
 export class NavigationService {
 
-  constructor(private SightsService: SightsService, private CitiesService: CitiesService) {}
+  constructor(
+    private commonService: CommonService
+  ) {}
 
   isCountry = new BehaviorSubject<any>({state: false});
   isCity = new BehaviorSubject<any>({state: false});
@@ -46,7 +45,7 @@ export class NavigationService {
   getSight() {
     return this.sight
   }
-  getСountryBySightQuery() {
+  getCountryBySightQuery() {
     return this.countryBySightQuery;
   }
   getCityBySightQuery() {
@@ -71,13 +70,13 @@ export class NavigationService {
 
     if(route.snapshot.queryParams['city']) {
       this.cityQuery.next(route.snapshot.queryParams['city']);
-      this.cityWeather.next(this.CitiesService.Cities.filter(city => city['title'] == this.cityQuery.value)[0]['weatherURL']);
+      this.cityWeather.next(this.commonService.allData.cities.filter(city => city['title'] == this.cityQuery.value)[0]['weatherURL']);
       this.openCityMenu();
     }
 
     if(route.snapshot.queryParams['sight']) {
       this.sightQuery.next(route.snapshot.queryParams['sight']);
-      this.sight.next({sight: this.SightsService.Sights.filter(sight => {
+      this.sight.next({sight: this.commonService.allData.sights.filter(sight => {
         return sight.title == this.sightQuery.value
       })[0]});
       this.countryBySightQuery.next(this.sight.value['sight']['country']);

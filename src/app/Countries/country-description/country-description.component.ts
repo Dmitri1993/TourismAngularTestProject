@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
-import {CountriesService} from '../../Shared/Services/countries.sevice';
 import {NavigationService} from '../../nav-bar/menu.service';
+import {CommonService} from '../../Shared/Services/common.service';
 
 @Component({
   selector: 'app-country-description',
@@ -14,14 +14,28 @@ export class CountryDescriptionComponent implements OnInit {
   countryToShow;
   countryTitle;
 
-  constructor(private CountriesService: CountriesService, private NavigationService: NavigationService, private route: ActivatedRoute) { }
+  constructor(
+    private route: ActivatedRoute,
+    private NavigationService: NavigationService,
+    private commonService: CommonService
+  ) {
+    commonService.isDataLoaded.subscribe(() => {
+      this.getCountry();
+    })
+  }
 
   ngOnInit() {
     this.countryTitle = this.route.snapshot.params['title'];
-    this.countryToShow = this.CountriesService.Countries.filter( country => {
-      return country.title == this.countryTitle;
-    })[0];
-    this.NavigationService.parseActivatedRoute(this.route);
+    this.getCountry();
+  }
+
+  getCountry() {
+    if (this.countryTitle && this.commonService.allData && this.commonService.allData.countries) {
+      this.countryToShow = this.commonService.allData.countries.filter( country => {
+        return country.title == this.countryTitle;
+      })[0];
+      this.NavigationService.parseActivatedRoute(this.route);
+    }
   }
 
 }

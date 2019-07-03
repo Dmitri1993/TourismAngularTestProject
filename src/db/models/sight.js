@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: true
   });
   Sight.associate = function(models) {
-    Sight.belongsTo(models.Country, {as: 'cityId__al', foreignKey: 'cityId'})
+    Sight.belongsTo(models.City, {as: 'cityId__al', foreignKey: 'cityId'})
     // associations can be defined here
   };
   return Sight;

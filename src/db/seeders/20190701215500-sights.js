@@ -396,7 +396,7 @@ module.exports = {
       icon: 'https://i2.wp.com/my-france.club/wp-content/uploads/2017/03/zamok-if-1.jpg?resize=800%2C445&ssl=1',
       longitude: '5.32589',
       latitude: '43.27976',
-      cityId: 2,
+      cityId: 1,
       images: [
         'https://topwar.ru/uploads/posts/2016-09/1474626318_1.-zamok-ih.-vid-v-solnechnuyu-pogodu.jpg',
         'http://rusintour.com/wp-content/uploads/2012/06/thumb.jpg',

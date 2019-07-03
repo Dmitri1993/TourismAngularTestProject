@@ -22,8 +22,6 @@ export class NewsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('new component');
-
     this.paramsSubscribtion = this.route
       .queryParams
       .subscribe(params => {
@@ -34,11 +32,10 @@ export class NewsComponent implements OnInit {
       .set('query', this.query);
 
     this.httpClient.get(
-      this.commonService.baseUrl + '/api/getnews',
+      this.commonService.baseServerUrl + '/api/getnews',
       {params: params}
       )
       .subscribe((data) => {
-        console.log('data', data);
         this.newsArray = data;
       },
       (error) => {
@@ -48,7 +45,9 @@ export class NewsComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    this.paramsSubscribtion.unsubscribe();
+    if (this.paramsSubscribtion) {
+      this.paramsSubscribtion.unsubscribe();
+    }
   }
 
 }

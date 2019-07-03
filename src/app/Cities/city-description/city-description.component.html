@@ -1,6 +1,8 @@
 <div class="container">
 
-  <div class="row" [innerHTML] = "cityToShow.description">
+  <div class="row" [innerHTML] = "cityToShow.description"
+    *ngIf="cityToShow && cityToShow.description"
+  >
   </div>
 
 </div>

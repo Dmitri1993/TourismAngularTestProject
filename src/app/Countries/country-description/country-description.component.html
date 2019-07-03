@@ -1,6 +1,8 @@
 <div class="container">
 
-  <div class="row" [innerHTML] = "countryToShow.description">
+  <div class="row" [innerHTML] = "countryToShow.description"
+    *ngIf="countryToShow && countryToShow.description"
+  >
   </div>
 
 </div>

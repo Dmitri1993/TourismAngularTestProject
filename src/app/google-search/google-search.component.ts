@@ -22,22 +22,19 @@ export class GoogleSearchComponent implements OnInit {
 
   makeSearchRequest() {
     if (this.queryString) {
-      console.log('makeSearchRequest', this.queryString);
 
       let params = new HttpParams()
         .set('query', this.queryString);
       this.httpClient.get(
-        this.commonService.baseUrl + '/api/search',
+        this.commonService.baseServerUrl + '/api/search',
         {params: params}
       )
         .subscribe(data => {
-          console.log('data', data);
           if (data) {
             this.articlesArray = Object.values(data);
           } else {
             this.articlesArray = [];
           }
-          console.log('this.articlesArray', this.articlesArray);
         },
         error => {
           console.log('error', error.error);

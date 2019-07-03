@@ -28,7 +28,7 @@ export class NavBarComponent implements OnInit {
     this.subscription = this.NavigationService.getCityQuery().subscribe(cityQuery => {
       this.cityQuery = cityQuery
     });
-    this.subscription = this.NavigationService.getСountryBySightQuery().subscribe(country => {
+    this.subscription = this.NavigationService.getCountryBySightQuery().subscribe(country => {
       this.countryBySightQuery = country
     });
     this.subscription = this.NavigationService.getCityBySightQuery().subscribe(city => {

@@ -19,9 +19,70 @@
         Sights.findAll()
       ])
         .then(data => {
-          console.log('data', data);
-          console.log('data', data);
-          res.send(data)
+          let countries = [];
+          let cities = [];
+          let sights = [];
+          for (let cn of data[0]) {
+            let countryClone = {};
+            countryClone.id = cn.id;
+            countryClone.title = cn.title;
+            countryClone.description = cn.description;
+            countryClone.icon = cn.icon;
+            countries.push(countryClone);
+          }
+          for (let ct of data[1]) {
+            let cityClone = {};
+            cityClone.id = ct.id;
+            cityClone.title = ct.title;
+            cityClone.description = ct.description;
+            cityClone.icon = ct.icon;
+            cityClone.weatherURL = ct.weatherURL;
+            cityClone.countryId = ct.countryId;
+            cities.push(cityClone);
+          }
+          for (let sg of data[2]) {
+            let sightClone = {};
+            sightClone.id = sg.id;
+            sightClone.title = sg.title;
+            sightClone.description = sg.description;
+            sightClone.icon = sg.icon;
+            sightClone.longitude = sg.longitude;
+            sightClone.latitude = sg.latitude;
+            sightClone.cityId = sg.cityId;
+            sights.push(sightClone);
+          }
+          for (let record of cities) {
+            let recordCountry;
+            record.country = countries.find(country => {
+              if (country.id == record.countryId) {
+                recordCountry = country;
+                if (!country.cities) {
+                  country.cities = [record.title];
+                } else {
+                  country.cities.push(record.title);
+                }
+                return true;
+              }
+            }).title;
+            let citySights = sights.filter(sight => {
+              if (sight.cityId == record.id) {
+                if (!recordCountry.sights) {
+                  recordCountry.sights = [sight.title];
+                } else {
+                  recordCountry.sights.push(sight.title);
+                }
+                sight.city = record.title;
+                sight.country = recordCountry.title;
+                return sight.title;
+              }
+            });
+            record.sights = citySights.map(c => c.title);
+          }
+          res.send({
+            countries: countries,
+            cities: cities,
+            sights: sights
+          });
         })
         .catch(err => {
           console.log('err', err);

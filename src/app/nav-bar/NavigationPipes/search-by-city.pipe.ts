@@ -8,7 +8,11 @@ export class SearchByCityPipe implements PipeTransform {
   transform(objects, cityQuery): any {
     if(cityQuery) {
       return objects.filter(object => {
-        return object.city.includes(cityQuery)
+        if (object.city) {
+          return object.city.includes(cityQuery)
+        } else if (object.cities) {
+          return object.cities.includes(cityQuery)
+        }
       })
     } else return objects;
   }
