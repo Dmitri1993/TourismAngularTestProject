@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING,
     longitude: DataTypes.STRING,
     latitude: DataTypes.STRING,
-    images: sequelize.ARRAY(Sequelize.TEXT),
+    images: sequelize.ARRAY(sequelize.TEXT),
     icon: DataTypes.STRING
   }, {
     tableName: 'Sights',
